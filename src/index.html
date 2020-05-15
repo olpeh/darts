@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <title>Det store dartspillet | aslaksen.bcc.no</title>
+    <link rel="stylesheet" href="https://use.typekit.net/vii3boe.css" />
+    <script>
+      window.initApi = "http://aslaksen.bcc.no/wp-json/darts-game/init";
+      window.sendApi = "http://aslaksen.bcc.no/wp-json/darts-game/throw";
+      window.homeUrl = "http://aslaksen.bcc.no/";
+      window.WPNounce = "bc9f9b4927";
+    </script>
+  </head>
+  <style>
+    html,
+    body {
+      background-color: rgba(188, 233, 236);
+    }
+
+    #controls.hide {
+      display: none;
+    }
+
+    #loading {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: rgba(93, 188, 194, 1);
+      color: white;
+      text-align: center;
+      padding: 150px 20px 0 20px;
+    }
+
+    #loading.hide {
+      display: none;
+    }
+
+    #loading .loadingText {
+      text-transform: uppercase;
+      font-size: 60px;
+    }
+
+    #loading.error .loadingText {
+      display: none;
+    }
+
+    #loading a {
+      font-size: 28px;
+      text-decoration: none;
+      background-color: rgba(188, 233, 236);
+      padding: 8px 16px;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      display: none;
+    }
+
+    #loading .errorText {
+      display: block;
+      font-size: 50px;
+      display: none;
+      margin-bottom: 25px;
+    }
+
+    #loading.error .errorText {
+      display: block;
+    }
+
+    #loading.error a {
+      display: inline;
+    }
+  </style>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="controls" class="hide">
+      <div id="helpBox">
+        <h2>How to play</h2>
+        <p id="helpText"></p>
+        <button id="closeHelpBtn" class="btn">Close</button>
+      </div>
+      <button id="questionBtn" class="btn btn-round">?</button>
+      <button id="returnBtn" class="btn btn-round">Menu</button>
+      <button id="homeBtn" class="btn btn-round">Home</button>
+      <div id="totalScoreBox">
+        <span id="scoreLabel">total score</span>
+        <span id="totalScoreCount">0</span>
+      </div>
+      <div id="arrowCounter">
+        <span id="arrowCounterSpan">0</span>
+      </div>
+      <div id="buttons" class="hide">
+        <div class="btnWrapper">
+          <button id="practiceModeBtn" class="btn btn-round"></button>
+          <span>Practice</span>
+        </div>
+        <div class="btnWrapper">
+          <button id="scoreBoardBtn" class="btn btn-round"></button>
+          <span>ScoreBoard</span>
+        </div>
+        <div class="btnWrapper" id="playBtnWrapper">
+          <button id="playBtn" class="btn btn-round"></button>
+          <span>Play</span>
+        </div>
+      </div>
+    </div>
+    <div id="loading">
+      <span class="loadingText">Loading</span>
+      <span class="errorText">
+        <b>OOPS!</b><br />
+        The game can not load right now. <br />
+        Please try again later.
+      </span>
+      <a href="http://aslaksen.bcc.no/" class="btn btn-round">Home</a>
+    </div>
+  </body>
+</html>
