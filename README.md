@@ -7,7 +7,7 @@ The dartgame that you can play on https://aslaksen.bcc.no/det-store-dartspillet/
 Pull the code from github
 
 ```sh
-git pull git@github.com:bcc-its/darts.git
+git clone git@github.com:bcc-its/darts.git
 ```
 
 Install all dependencies
