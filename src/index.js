@@ -14,7 +14,7 @@ const STATE_PLAYING_THROW_FINISHED = 14;
 let Score = 0;
 let PractiseScore = 0;
 let PractiseArrows = 0;
-let Arrows = 3;
+let Arrows = 10;
 let PracticeMode = false;
 const Darts = new Game('canvas');
 
@@ -203,22 +203,11 @@ function crypt(data) {
 }
 
 function sendPoints(points, score) {
-  fetch(`${window.sendApi}?_wpnonce=${window.WPNounce}`, {
-    method: 'POST',
-    body: crypt({ p: points, s: score }),
-  })
-    .then((r) => {
-      if (r.status !== 200) {
-        throw new Error();
-      }
-      return r.json();
-    })
-    .then((data) => {
-      Score = data.score;
-      Arrows = data.arrows;
-      setState(STATE_PLAYING_THROW_FINISHED);
-    })
-    .catch(gameError);
+  Score = score;
+  Arrows--;
+  setTimeout(function () {
+    setState(STATE_PLAYING_THROW_FINISHED);
+  }, 500);
 }
 
 function gameError(e) {
