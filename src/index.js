@@ -203,7 +203,7 @@ function crypt(data) {
 }
 
 function sendPoints(points, score) {
-  Score = score;
+  Score += points;
   Arrows--;
   setTimeout(function () {
     setState(STATE_PLAYING_THROW_FINISHED);
