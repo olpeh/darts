@@ -1,6 +1,6 @@
 # Det store dartspillet
 
-The dartgame that you can play on https://aslaksen.bcc.no/det-store-dartspillet/
+The dartgame that you can play on https://aslaksen.bcc.no/det-store-dartspillet/ turned into a Telegram game version for practicing.
 
 ## Getting Started
 

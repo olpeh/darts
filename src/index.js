@@ -20,7 +20,6 @@ const Darts = new Game('canvas');
 
 const loadingbox = document.getElementById('loading');
 const controlsBox = document.getElementById('controls');
-let scoreBoardUrl = 'http://aslaksen.bcc.no/';
 
 const totalScoreCount = document.getElementById('totalScoreCount');
 const scoreLabel = document.getElementById('scoreLabel');
@@ -28,7 +27,6 @@ const buttons = document.getElementById('buttons');
 const practiceModeBtn = document.getElementById('practiceModeBtn');
 const menuBtn = document.getElementById('returnBtn');
 const homeBtn = document.getElementById('homeBtn');
-const scoreBoardBtn = document.getElementById('scoreBoardBtn');
 const playBtn = document.getElementById('playBtn');
 const playBtnWrapper = document.getElementById('playBtnWrapper');
 const arrowCounter = document.getElementById('arrowCounterSpan');
@@ -117,22 +115,6 @@ function clickMenu(e) {
   e.stopPropagation();
 }
 
-homeBtn.addEventListener('click', clickHome);
-homeBtn.addEventListener('touchstart', clickHome);
-function clickHome(e) {
-  window.location.href = window.homeUrl || 'http://aslaksen.bcc.no/';
-  e.preventDefault();
-  e.stopPropagation();
-}
-
-scoreBoardBtn.addEventListener('click', navigateToScoreBoard);
-scoreBoardBtn.addEventListener('touchstart', navigateToScoreBoard);
-function navigateToScoreBoard(e) {
-  window.location.href = scoreBoardUrl;
-  e.preventDefault();
-  e.stopPropagation();
-}
-
 function setUI() {
   scoreLabel.innerText = PracticeMode ? 'Practice score' : 'Total score';
   totalScoreCount.innerText = PracticeMode ? PractiseScore : Score;
@@ -179,7 +161,6 @@ function setHelpText(text) {
 function init(data) {
   Arrows = data.arrowsLeft;
   setHelpText(data.help);
-  scoreBoardUrl = data.leaderboard;
   Score = data.totalScore;
 
   Darts.init();
@@ -252,7 +233,6 @@ if (!!window.MSInputMethodContext && !!document.documentMode) {
   init({
     arrowsLeft: 10,
     totalScore: 0,
-    leaderboard: 'http://aslaksen.bcc.no/scoreboard/',
     help: 'This is the help message which will going to be updated soon!',
   });
 }
